@@ -1,0 +1,76 @@
+-- to create a new database
+drop database api;
+CREATE DATABASE api;
+
+-- to use database
+use api;
+
+ 
+
+drop table empleado;
+ 
+
+CREATE TABLE empleado (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL, 
+    apellido VARCHAR(50) NOT NULL,  
+  email VARCHAR(15),
+   telefono VARCHAR(15),
+    turno VARCHAR(50) ,
+     area VARCHAR(50)
+      
+);
+
+ 
+
+insert into empleado(nombre,apellido,email,telefono,turno,area)
+values( 'JORGE','GODOY','jorge@gmail.com','0800-330-55','MAÑANA','FINANZAS');
+
+-- to show all tables
+show tables;
+
+-- to describe table
+describe empleado;
+
+
+select *
+from empleado;
+
+ 
+
+ delimiter // 
+CREATE PROCEDURE  empleadoAgregarEditar  (
+   
+     IN id INT(6),
+  IN nombre VARCHAR(50),
+   IN apellido VARCHAR(50),
+    IN email VARCHAR(15),
+     IN telefono VARCHAR(15),
+      IN turno VARCHAR(45),
+       IN area VARCHAR(45) 
+)
+BEGIN 
+  IF id = 0 THEN
+    INSERT INTO empleado (nombre, apellido,email,telefono,turno,area)
+    VALUES (nombre, apellido,email,telefono,turno,area);
+
+    SET id = LAST_INSERT_ID();
+  ELSE
+    UPDATE empleado
+    SET
+    nombre = nombre,
+    apellido = apellido,
+     email = email,
+      telefono = telefono,
+       turno = turno,
+       area = area 
+    WHERE id = id;
+  END IF;
+
+  SELECT id AS 'id';
+END//
+ delimiter ;
+ 
+call   empleadoAgregarEditar(0,'JORGE','GODOY','jorge@gmail.com','0800-330-55','MAÑANA','FINANZAS');
+ drop procedure empleadoAgregarEditar
+ 

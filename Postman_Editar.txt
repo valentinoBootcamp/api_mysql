@@ -1,0 +1,23 @@
+
+
+/////////////////////////// PUT
+
+
+http://localhost:3000/editar/2
+
+
+  {
+         
+        "nombre": "JUAN MANUEL",
+        "apellido": "MARTINEZ",
+        "email": "JUANemanuel@gmail.com",
+        "telefono": "0800-233-0492",
+        "turno": "MAÑANA",
+        "area": "COMERCIAL"
+    }
+ 
+
+{
+    "status": "EMPLEADO  EDITADO"
+}
+

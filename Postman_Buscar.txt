@@ -1,0 +1,24 @@
+
+
+/////////////////////////// GET
+
+
+http://localhost:3000/buscar/2
+
+
+{
+    "id": 2,
+    "nombre": "MANUEL",
+    "apellido": "MARTINEZ",
+    "email": "emanuel@gmail.c",
+    "telefono": "0800-233-0492",
+    "turno": "MAÑANA",
+    "area": "COMERCIAL"
+}
+
+
+
+
+ 
+	
+ 
